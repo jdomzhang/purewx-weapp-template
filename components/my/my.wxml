@@ -1,0 +1,8 @@
+  <view class="mx-2 my-2 px-3 py-3 green white--text" bind:tap="onClickHello">
+    <view class="headline py-1">
+      Hello Component
+    </view>
+    <view class="caption">
+    API Root: <text v-text="apiRoot"></text>
+    </view>
+  </view>

@@ -1,0 +1,9 @@
+<view>
+  <!-- <user-auth /> -->
+  <page-base bind:userLoaded="onUserLoaded" />
+  <view class='flex text-xs-center my-5 py-3 green lighten-5' wx:for="{{list}}" wx:key="index">
+    <view id="{{index}}" bind:tap='onHelloClicked'>
+      Hello, {{name}} - {{item}} : {{index}}
+    </view>
+  </view>
+</view>

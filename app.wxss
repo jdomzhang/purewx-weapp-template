@@ -1,0 +1,3 @@
+@import './static/vuetify/vuetify.min.wxss';
+@import './static/fontawesome/fontawesome-4.7.0.wxss';
+
