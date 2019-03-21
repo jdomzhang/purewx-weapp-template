@@ -1,13 +1,34 @@
 const { regeneratorRuntime } = global
-// import regeneratorRuntime from "../../libs/regeneratorRuntime"
 
 import { apiRoot, debug } from './apiroot.autogen'
 var Fly = require('../libs/wx')
 
-function log() {
+function log () {
   if (debug) {
     console.log.apply(null, arguments)
   }
+}
+
+let loadingCount = 0
+
+const showLoading = () => {
+  loadingCount++
+  // console.log('show: loading count:', loadingCount)
+  if (loadingCount === 1) {
+    wx.showLoading({
+      title: '加载中'
+    })
+  }
+}
+
+const hideLoading = () => {
+  setTimeout(() => {
+    loadingCount--
+    // console.log('hide: loading count:', loadingCount)
+    if (loadingCount <= 0) {
+      wx.hideLoading()
+    }
+  }, 100)
 }
 
 export default async (x, data, method = 'GET') => {
@@ -30,9 +51,7 @@ export const createFly = () => {
   fly.interceptors.request.use((request) => {
     log('>>> request', request)
 
-    wx.showLoading({
-      title: '加载中'
-    })
+    showLoading()
     var token = wx.getStorageSync('authorization')
 
     if (token) {
@@ -45,7 +64,7 @@ export const createFly = () => {
     (response) => {
       log('<<< response', response)
 
-      wx.hideLoading()
+      hideLoading()
       let token = response.headers.authorization
       if (token && typeof token === 'object' && token.length > 0) {
         token = token[0]
@@ -57,7 +76,7 @@ export const createFly = () => {
       return response.data
     },
     (err) => {
-      wx.hideLoading()
+      hideLoading()
       log('!!! err', err)
 
       // unauthorized
