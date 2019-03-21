@@ -3,6 +3,6 @@
       Hello Component
     </view>
     <view class="caption">
-    API Root: <text v-text="apiRoot"></text>
+    API Root: {{apiRoot}}
     </view>
   </view>

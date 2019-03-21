@@ -9,8 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '阿凡达',
-    list: ['甲', '乙', '丙', '丁']
   },
 
   /**
@@ -65,15 +63,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  /********************** Custom Methods******************** */
-  async onHelloClicked (e) {
-    console.log(e)
-    var item = e.target.dataset.item || ''
-    // let x = Date.now()
-    let msg = await sayHello()
-    this.setData({name: `${item} - ${msg}`})
   },
 
   onUserLoaded (e) {

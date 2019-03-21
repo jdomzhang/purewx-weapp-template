@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "你好",
   "usingComponents": {
-    "user-auth": "../../components/userAuth/userAuth",
+    "my": "../../components/my/my",
     "page-base": "../../components/pageBase/pageBase"
   }
 }
