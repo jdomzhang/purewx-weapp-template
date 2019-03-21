@@ -14,7 +14,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    ticks: {
+      type: String,
+      value: '',
+      observer(newVal, oldVal, changedPath) {
+        console.log('observer', newVal, oldVal, changedPath)
+      }
+    }
   },
 
   /**

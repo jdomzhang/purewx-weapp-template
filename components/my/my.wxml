@@ -1,6 +1,7 @@
   <view class="mx-2 my-2 px-3 py-3 green white--text" bind:tap="onClickHello">
     <view class="headline py-1">
       Hello Component
+      <view class="flex">ticks: {{ticks}}</view>
     </view>
     <view class="caption">
     API Root: {{apiRoot}}

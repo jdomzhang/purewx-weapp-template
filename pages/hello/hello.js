@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ticks: Date.now()
   },
 
   /**
@@ -67,5 +68,10 @@ Page({
 
   onUserLoaded (e) {
     console.log('user loaded', e)
+  },
+
+  onClickChange (e) {
+    console.log('onClickChange')
+    this.setData({ticks: '' + Date.now()})
   }
 })

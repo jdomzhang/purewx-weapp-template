@@ -1,5 +1,9 @@
 <view>
   <!-- <user-auth /> -->
   <page-base bind:userLoaded="onUserLoaded" />
-  <my />
+  <my ticks="{{ticks}}" />
+
+  <view class="flex text-xs-center py-3 red white--text" bind:tap="onClickChange">
+    Change Ticks
+  </view>
 </view>
